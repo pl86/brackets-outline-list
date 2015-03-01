@@ -1,4 +1,4 @@
-/* global define, brackets */
+/*global define, $, brackets */
 
 define(function (require, exports, module) {
     "use strict";
@@ -56,14 +56,14 @@ define(function (require, exports, module) {
 
     /**
      * Create the entry list of functions language dependent.
-     * @param   {Array}   lines         Array that contains the lines of text.
+     * @param   {String}  documentContent document content.
      * @param   {Boolean} showArguments args Preference.
      * @returns {Array}   List of outline entries.
      */
-    function getOutlineList(lines, showArguments) {
+    function getOutlineList(documentContent, showArguments) {
         var regex = /^(\s*)<([\w]+:)?([\w.:-]+)(?:[^>]*?(id|class)=["']([\w- ]+)["'])?/g;
         var result = [];
-        lines.forEach(function (line, index) {
+        documentContent.split("\n").forEach(function (line, index) {
             var match = regex.exec(line);
             while (match !== null) {
                 var whitespace = match[1];

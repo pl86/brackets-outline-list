@@ -1,4 +1,4 @@
-/* global define */
+/*global define, $ */
 
 define(function (require, exports, module) {
     "use strict";
@@ -24,13 +24,13 @@ define(function (require, exports, module) {
 
     /**
      * Create the entry list of functions language dependent.
-     * @param   {Array}   lines         Array that contains the lines of text.
+     * @param   {String}  documentContent document content.
      * @returns {Array}   List of outline entries.
      */
-    function getOutlineList(lines) {
+    function getOutlineList(documentContent) {
         var regex = /^(#+)\s*(.+)/g;
         var result = [];
-        lines.forEach(function (line, index) {
+        documentContent.split("\n").forEach(function (line, index) {
             var match = regex.exec(line);
             while (match !== null) {
                 var name = (match[2] || match[3]).trim();

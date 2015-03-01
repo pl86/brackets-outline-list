@@ -1,4 +1,4 @@
-/* global define, brackets, Mustache */
+/*global define, brackets, Mustache, $ */
 
 define(function (require, exports, module) {
     "use strict";
@@ -71,8 +71,8 @@ define(function (require, exports, module) {
 
         showOutline();
 
-        var lines = doc.getText(false).split("\n");
-        var list = lang.getOutlineList(lines, prefs.get("args"), prefs.get("unnamed"));
+        var documentContent = doc.getText(false);
+        var list = lang.getOutlineList(documentContent, prefs.get("args"), prefs.get("unnamed"));
 
         if (prefs.get("sort") && lang.compare) {
             list.sort(lang.compare);
