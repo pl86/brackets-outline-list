@@ -202,6 +202,11 @@
     content: "\f276";
 }
 
+.outline-entry-php-class:before {
+    color: #ffb800;
+    content: "\f318";
+}
+
 .outline-entry-php-unnamed:before {
     color: #f47b22;
     content: "\3bb";
