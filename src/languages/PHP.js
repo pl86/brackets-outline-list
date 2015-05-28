@@ -52,7 +52,7 @@ define(function (require, exports, module) {
         });
 
         re = /\n[\t ]*class\s+(\w*)\s*(extends\s*\w*\s*)?\{/g;
-        documentContent.replace(re, function (match, p1, offset) {
+        documentContent.replace(re, function (match, p1, p2, offset) {
             outline = {name: p1, offset: offset, match: match};
             outlinesCls.push(outline);
         });
